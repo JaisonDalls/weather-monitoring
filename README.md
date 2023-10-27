@@ -23,4 +23,6 @@ Levamento de requisitos:
 - Consumo de API externa para capturar;
     temperaturas de uma determinada localidade;
 - plataforma de desenvolvimento - VS Code;
+    - Instalar minGW manager;
+        - install mingw32-base;
 - Extensões utilizadas - C++ inteliphense;
