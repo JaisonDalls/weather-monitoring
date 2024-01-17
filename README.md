@@ -1,10 +1,12 @@
-# weather-monitoring
+# weather-monitoring [Ver.1.0]
 Este projeto é uma aplicação em C++ que usa a API OpenWeather para monitorar o tempo em qualquer cidade do mundo. O usuário insere o nome de uma cidade, e a aplicação retorna a temperatura atual e a descrição do tempo.
 
-## 🚀 Initial Proposal
+## Ⅰ - Versão 1.0: Monitoramento Climático Urbano
 
-Com a influência do aquecimento global estima-se que ao menos 12% das geleiras do Ártico, desaparecerão em menos de 30 anos.
-Com isso, construa um algoritmo que monitore a temperatura do ar e gere um alerta o pico máximo e o mínimo dentro de um determinado período.
+A primeira versão do projeto foca no monitoramento climático urbano, armazenando dados de temperatura das cidades para análises históricas. O objetivo principal é desenvolver um algoritmo que monitora condições climáticas em áreas urbanas, gera alertas de temperaturas extremas, e contribui para a conscientização sobre as mudanças climáticas e suas implicações nas cidades. Além disso, o projeto visa fornecer dados valiosos para pesquisas relacionadas ao clima.
+
+## Ⅱ - Versão 2.0: Monitoramento Climático Global
+A segunda versão amplia o escopo para um monitoramento climático global, com especial atenção às regiões afetadas pelo aquecimento global, como o Ártico. Esta versão se concentra em monitorar temperaturas globais, gerar alertas para extremos climáticos, e analisar tendências climáticas de longo prazo. O objetivo é sensibilizar e educar sobre o aquecimento global, promovendo ações de mitigação e adaptação, e contribuir significativamente para a pesquisa ambiental global.
 
 ## Recursos
 - Busca de informações climáticas de qualquer cidade.
