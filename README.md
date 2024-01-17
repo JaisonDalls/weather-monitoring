@@ -1,6 +1,4 @@
 # weather-monitoring
-
-A monitoring platform for weather using a weather API and implements into application desktop.
 Este projeto é uma aplicação em C++ que usa a API OpenWeather para monitorar o tempo em qualquer cidade do mundo. O usuário insere o nome de uma cidade, e a aplicação retorna a temperatura atual e a descrição do tempo.
 
 ## 🚀 Initial Proposal
