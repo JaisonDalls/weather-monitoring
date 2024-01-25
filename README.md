@@ -14,6 +14,12 @@ A segunda versão amplia o escopo para um monitoramento climático global, com e
 - Retorna a temperatura atual e a descrição do tempo.
 - Formata a saída de dados para facilitar a visualização.
 
+## Características
+- Linux: Utiliza a versão mais recente do Ubuntu como base.
+- SSH Habilitado: Configuração do OpenSSH Server para permitir acesso remoto.
+- Ferramentas de Desenvolvimento: Inclui compiladores e editores, como `g++` e `nano`.
+- Bibliotecas C++: Instalação de bibliotecas essenciais para desenvolvimento C++.
+
 ## Dependências
 - [libcurl](https://curl.se/libcurl/): Biblioteca cliente para transferência de dados com URL sintaxe.
 - [nlohmann/json](https://github.com/nlohmann/json): Biblioteca moderna em C++ para manipulação de JSON.
@@ -22,28 +28,26 @@ A segunda versão amplia o escopo para um monitoramento climático global, com e
 
 Para containerizar este projeto com Docker e configurar o acesso SSH, siga os passos abaixo:
 
-1. Gere um par de chaves SSH (pública e privada) com o comando `ssh-keygen`, sem definir uma senha.
+1. Para construir a imagem, execute o seguinte comando no diretório do `Dockerfile`:
 ```
-ssh-keygen -t rsa -b 4096
+docker build -t sua_imagem .
 ```
-2. Localize a chave pública (usualmente em `~/.ssh/id_rsa.pub`) e assegure-se de sua acessibilidade.
-```
-cat ~/.ssh/id_rsa.pub
-```
-3. Copie o conteúdo da chave e insira-o em um novo arquivo `id_rsa.pub`, localizado no mesmo diretório que contém o seu Dockerfile. Esse passo é crucial para configurar o acesso SSH ao container sem a necessidade de usar senhas, permitindo uma conexão segura e simplificada.
+Substitua `sua_imagem` pelo nome desejado para a imagem
 
-4. No diretório do Dockerfile, construa a imagem Docker:
+2. Para iniciar o container:
 ```
-docker build -t weatherapp .
+docker run -d -p 22:22 sua_imagem
 ```
-5. Execute o container a partir da imagem, mapeando a porta 22 do container para uma porta no host:
+Isso mapeia a porta 22 do host para a porta 22 do container, permitindo acesso via SSH.
+
+3. Conecte-se ao container usando:
 ```
-docker run -d -p 22:22 weatherapp
+ssh wmonitor@host_ip
 ```
-6. Conecte-se ao container utilizando o endereço IP e a porta mapeada.
-```
-ssh -p 22 wmonitor@127.0.0.1
-```
+Use a senha `123456`. Substitua `host_ip` pelo IP do host.
+
+### Diretório Home
+O diretório home do usuário wmonitor está localizado em `/home/wmonitor`, contendo os arquivos `main.cpp` e `apiKey.txt`. É crucial atualizar o conteúdo de `apiKey.txt` com sua chave API pessoal, garantindo assim o funcionamento adequado da aplicação.
 
 ## Configuração da Chave API
 Antes de executar o programa, você precisa configurar sua chave de API do OpenWeather, seguindo estes passos:
