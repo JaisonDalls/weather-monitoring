@@ -1,0 +1,4 @@
+/vendor
+.env
+*.env
+id_rsa.pub
