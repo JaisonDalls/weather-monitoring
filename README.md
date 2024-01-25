@@ -9,22 +9,52 @@ A primeira versão do projeto foca no monitoramento climático urbano, armazenan
 A segunda versão amplia o escopo para um monitoramento climático global, com especial atenção às regiões afetadas pelo aquecimento global, como o Ártico. Esta versão se concentra em monitorar temperaturas globais, gerar alertas para extremos climáticos, e analisar tendências climáticas de longo prazo. O objetivo é sensibilizar e educar sobre o aquecimento global, promovendo ações de mitigação e adaptação, e contribuir significativamente para a pesquisa ambiental global.
 
 ## Recursos
-- Busca de informações climáticas de qualquer cidade.
-- Utiliza a API OpenWeather.
+- Busca informações climáticas de qualquer cidade.
+- Utiliza a API do OpenWeather.
 - Retorna a temperatura atual e a descrição do tempo.
-- Formata a saída de dados para uma melhor visualização.
+- Formata a saída de dados para facilitar a visualização.
 
 ## Dependências
-- [libcurl](https://curl.se/libcurl/)
-- [nlohmann/json](https://github.com/nlohmann/json)
- 
-## Configuração
-Antes de executar o programa, é necessário configurar a chave de API do OpenWeather. A chave deve ser armazenada em um arquivo chamado `apiKey.txt` na mesma pasta do executável.
+- [libcurl](https://curl.se/libcurl/): Biblioteca cliente para transferência de dados com URL sintaxe.
+- [nlohmann/json](https://github.com/nlohmann/json): Biblioteca moderna em C++ para manipulação de JSON.
+
+## Configuração e Execução do Docker
+
+Para containerizar este projeto com Docker e configurar o acesso SSH, siga os passos abaixo:
+
+1. Gere um par de chaves SSH (pública e privada) com o comando `ssh-keygen`, sem definir uma senha.
+```
+ssh-keygen -t rsa -b 4096
+```
+2. Localize a chave pública (usualmente em `~/.ssh/id_rsa.pub`) e assegure-se de sua acessibilidade.
+```
+cat ~/.ssh/id_rsa.pub
+```
+3. Copie o conteúdo da chave e insira-o em um novo arquivo `id_rsa.pub`, localizado no mesmo diretório que contém o seu Dockerfile. Esse passo é crucial para configurar o acesso SSH ao container sem a necessidade de usar senhas, permitindo uma conexão segura e simplificada.
+
+4. No diretório do Dockerfile, construa a imagem Docker:
+```
+docker build -t weatherapp .
+```
+5. Execute o container a partir da imagem, mapeando a porta 22 do container para uma porta no host:
+```
+docker run -d -p 22:22 weatherapp
+```
+6. Conecte-se ao container utilizando o endereço IP e a porta mapeada.
+```
+ssh -p 22 wmonitor@127.0.0.1
+```
+
+## Configuração da Chave API
+Antes de executar o programa, você precisa configurar sua chave de API do OpenWeather, seguindo estes passos:
+
+1. Faça o registro no site do OpenWeatherMap: [Registro no OpenWeatherMap](https://openweathermap.org/).
+2. Após o registro, acesse a área de gerenciamento de chaves de API e crie sua chave pessoal: [Gerar Chave de API no OpenWeatherMap](https://home.openweathermap.org/api_keys).
+3. Copie a chave de API gerada e a insira na primeira linha do arquivo `apiKey.txt`.
 
 ## Compilação e Execução
-Para compilar este projeto, você precisa ter as bibliotecas libcurl e nlohmann/json instaladas. 
+Certifique-se de ter as bibliotecas `libcurl` e `nlohmann/json` instaladas. Compile o projeto com o seguinte comando:
 
-Use o seguinte comando para compilar:
 ```
 g++ main.cpp -o weatherApp -lcurl
 ```
@@ -41,8 +71,4 @@ Para executar o programa:
 
 ## Licença
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Autores
-- [Jaison Dallabrida](https://github.com/JaisonDalls)
-- [Rafael Acrane](https://github.com/acranerafael)
 
