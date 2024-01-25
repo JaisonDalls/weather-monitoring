@@ -44,7 +44,7 @@ Isso mapeia a porta 22 do host para a porta 22 do container, permitindo acesso v
 ```
 ssh wmonitor@host_ip
 ```
-Use a senha `123456`. Substitua `host_ip` pelo IP do host.
+Use a senha `123456` e substitua `host_ip` pelo IP do host.
 
 ### Diretório Home
 O diretório home do usuário wmonitor está localizado em `/home/wmonitor`, contendo os arquivos `main.cpp` e `apiKey.txt`. É crucial atualizar o conteúdo de `apiKey.txt` com sua chave API pessoal, garantindo assim o funcionamento adequado da aplicação.
