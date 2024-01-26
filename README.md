@@ -55,6 +55,11 @@ Antes de executar o programa, você precisa configurar sua chave de API do OpenW
 1. Faça o registro no site do OpenWeatherMap: [Registro no OpenWeatherMap](https://openweathermap.org/).
 2. Após o registro, acesse a área de gerenciamento de chaves de API e crie sua chave pessoal: [Gerar Chave de API no OpenWeatherMap](https://home.openweathermap.org/api_keys).
 3. Copie a chave de API gerada e a insira na primeira linha do arquivo `apiKey.txt`.
+4. Para editar o arquivo `apiKey.txt` com a chave API, abra um terminal e execute o seguinte comando:
+```
+nano /home/wmonitor/apiKey.txt
+```
+5. Dentro do editor `nano`, substitua qualquer conteúdo existente pela sua chave API, colocando-a na primeira linha do arquivo. Salve as alterações pressionando `[Ctrl + O]`, confirme pressionando `[Enter]`, e saia do editor pressionando `[Ctrl + X]`.
 
 ## Compilação e Execução
 Certifique-se de ter as bibliotecas `libcurl` e `nlohmann/json` instaladas. Compile o projeto com o seguinte comando:
