@@ -1,0 +1,1 @@
+add_only_your_apiKey_here_without_spaces_and_links ---- https://home.openweathermap.org/api_keys
